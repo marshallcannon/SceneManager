@@ -9,9 +9,7 @@ local SceneManager = {
   -- Scenes to remove at the end of the update loop
   removalQueue = {},
   -- Container for all input related functions
-  input = Input,
-  -- Shows the current version of the game
-  versionText = love.graphics.newText(love.graphics.getFont(), 'Version ' .. Config.version)
+  input = Input
 }
 
 function SceneManager:add(newScene, index)
@@ -200,17 +198,6 @@ function SceneManager:draw()
   -- Transition
   if self.transition then
     self.transition:draw()
-  end
-
-  -- Version text
-  love.graphics.setColor(1, 1, 1)
-  love.graphics.draw(self.versionText, love.graphics.getWidth() - self.versionText:getWidth() - 10, 10)
-
-  -- FPS
-  if game and game.debug then
-    love.graphics.setColor(1, 1, 1)
-    love.graphics.setFont(Fonts.default)
-    love.graphics.print(love.timer.getFPS(), 0, 0)
   end
 
 end
